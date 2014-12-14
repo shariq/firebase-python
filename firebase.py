@@ -51,13 +51,26 @@ class RemoteThread(threading.Thread):
             self.sse.close()
 
 def firebaseURL(URL):
-    if '.' not in URL.lower():
-        return 'https://'+URL+'.firebaseio.com/.json'
+    if '.firebaseio.com' not in URL.lower():
+        if '.json' == URL[-5:]:
+            URL = URL[:-5]
+        if '/' in URL:
+            if '/' == URL[-1]:
+                URL = URL[:-1]
+            URL = 'https://'+URL.split('/')[0]+'.firebaseio.com/' + URL.split('/',1)[1] + '.json'
+        else:
+            URL = 'https://'+URL+'.firebaseio.com/.json'
+        return URL
+
+    if 'http://' in URL:
+        URL = URL.replace('http://', 'https://')
+    if 'https://' not in URL:
+        URL = 'https://' + URL
     if '.json' not in URL.lower():
         if '/' != URL[-1]:
-            return URL + '/.json'
+            URL = URL + '/.json'
         else:
-            return URL + '.json'
+            URL = URL + '.json'
     return URL
 
 class subscriber:
