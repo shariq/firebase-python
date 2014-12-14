@@ -20,22 +20,22 @@ https://www.firebase.com/signup/
 ```python
 >>> import firebase
 >>> URL = 'lucid-lychee'  # see note on URLs at the bottom of documentation
->>> firebase.get(URL) == None  # this is an empty Firebase
-True
+>>> print firebase.get(URL)  # this is an empty Firebase
+None
 
 >>> firebase.put(URL, 'tell me everything')  # can take a string
->>> firebase.get(URL)
-u'tell me everything'
+>>> print firebase.get(URL)
+tell me everything
 
 >>> firebase.put(URL, {'lucidity': 9001})  # or a dictionary
->>> firebase.get(URL)
+>>> print firebase.get(URL)
 {u'lucidity': 9001}
 
 >>> firebase.put(URL, {'color': 'red'})  # replaces old value
->>> firebase.get(URL)
+>>> print firebase.get(URL)
 {u'color': u'red'}
 
->>> firebase.get(URL + '/color')
+>>> print firebase.get(URL + '/color')
 u'red'
 ```
 
@@ -48,15 +48,15 @@ u'red'
 ```python
 >>> import firebase
 >>> URL = 'tibetan-tumbleweed'
->>> firebase.get(URL) == None
-True
+>>> print firebase.get(URL)
+None
 
 >>> firebase.patch(URL, {'taste': 'tibetan'})
->>> firebase.get(URL)
+>>> print firebase.get(URL)
 {u'taste': u'tibetan'}
 
 >>> firebase.patch(URL, {'size': 'tumbly})  # patching does not overwrite
->>> firebase.get(URL)
+>>> print firebase.get(URL)
 {u'taste': u'tibetan', u'size': u'tumbly'}
 ```
 
@@ -81,12 +81,12 @@ True
 {u'data': {u'status': u'mortified'}, u'path': u'/'}
 >>> firebase.patch(URL, {'reason': 'blushing'})  # this one is scary
 {u'data': {u'reason': u'blushing'}, u'path': u'/'}
->>> firebase.get(URL)  # notice the update only gave us the new k,v without telling us
+>>> print firebase.get(URL)  # notice the update only gave us the new k,v without telling us
 {u'status': u'mortified', u'reason': u'blushing'}
 
 >>> firebase.put(URL, {'color': 'orange-red'})  # expect change from S
 {u'data': {u'color': u'orange-red'}, u'path': u'/'}
->>> firebase.get(URL)  # put overwrites, but S doesn't tell us!
+>>> print firebase.get(URL)  # put overwrites, but S doesn't tell us!
 {u'color': u'orange-red'}
 
 >>> firebase.put(URL + '/color', 'red')
