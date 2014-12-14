@@ -1,13 +1,4 @@
-# adapted from firebase/EventSource-Examples/python/chat.py
-
-'''
-Example usage:
-S = firebase.subscriber(URL, print)
-firebase.patch(URL, data) # for updating some kv pairs
-firebase.push(URL, data) # for lists
-firebase.put(URL, data) # CAUTION! for replacing everything!
-
-'''
+# adapted from firebase/EventSource-Examples/python/chat.py by Shariq Hashme
 
 from sseclient import SSEClient
 import requests
