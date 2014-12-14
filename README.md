@@ -1,11 +1,14 @@
 #firebase-python
 ######A nice, easy Python Firebase integration
 
-Supports streaming API but not authentication.
+Supports streaming data.
 
 Requires `requests` and `sseclient`, which are on pip. If you don't know what that is, don't worry; just run `./setup.sh`.
 
-Warning: The free level of Firebase only allows up to 50 concurrent connections. Don't hit this limit!
+First create a Firebase here:
+https://www.firebase.com/signup/
+
+(warning: The free level of Firebase only allows up to 50 concurrent connections. Don't hit this limit!)
 
 
 
