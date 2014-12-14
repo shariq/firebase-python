@@ -1,5 +1,5 @@
 #firebase-python
-####A nice and simple Firebase integration for Python
+####A nice and simple (working!!) Python module for Firebase
 
 This module exposes methods to interface with Firebase from Python. Supports streaming API but not authentication.
 
@@ -75,7 +75,7 @@ True
 ```
 
 
-##Handling Firebase URLs
+##Firebase URLs
 All URLs are internally converted to the apparent Firebase URL. This is done by the `firebaseURL` method.
 
 ```python
