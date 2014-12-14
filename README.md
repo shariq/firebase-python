@@ -91,6 +91,8 @@ True
 
 >>> firebase.put(URL + '/color', 'red')
 {u'data': u'red', u'path': u'/color'}
+
+>>> S.stop()
 ```
 
 
