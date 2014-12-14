@@ -36,7 +36,7 @@ tell me everything
 {u'color': u'red'}
 
 >>> print firebase.get(URL + '/color')
-u'red'
+red
 ```
 
 
