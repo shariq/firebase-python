@@ -5,7 +5,7 @@ Supports streaming API but not authentication.
 
 Requires `requests` and `sseclient`, which are on pip. If you don't know what that is, don't worry; just run `./setup.sh`.
 
-Warning: The free level of Firebase only allows up to 50 concurrent connections. Don't come close to this or you'll start facing some really weird bugs!
+Warning: The free level of Firebase only allows up to 50 concurrent connections. Don't hit this limit!
 
 
 
