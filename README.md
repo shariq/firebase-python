@@ -5,6 +5,7 @@ Supports streaming data.
 
 Requires `requests` and `sseclient`, which are on pip. If you don't know what that is, don't worry; just run `./setup.sh`.
 
+
 First create a Firebase here:
 https://www.firebase.com/signup/
 
