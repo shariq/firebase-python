@@ -3,8 +3,7 @@
 
 Supports streaming data.
 
-Requires `requests` and `sseclient`, which are on pip. If you don't know what that is, don't worry; just run `./setup.sh`.
-
+Requires `requests` and `sseclient`, which are on pip. If you don't know what that is, don't worry; just run `./setup.sh`. Made for Python 2.7.
 
 First create a Firebase here:
 https://www.firebase.com/signup/
@@ -103,12 +102,12 @@ All URLs are internally converted to the apparent Firebase URL. This is done by 
 ```python
 >>> import firebase
 
->>> firebase.firebaseURL('bony-badger')
-'https://bony-badger.firebaseio.com/.json'
+>>> print firebase.firebaseURL('bony-badger')
+https://bony-badger.firebaseio.com/.json
 
->>> firebase.firebaseURL('bony-badger/bones/humerus')
-'https://bony-badger.firebaseio.com/bones/humerus.json'
+>>> print firebase.firebaseURL('bony-badger/bones/humerus')
+https://bony-badger.firebaseio.com/bones/humerus.json
 
->>> firebase.firebaseURL('bony-badger.firebaseio.com/')
-'https://bony-badger.firebaseio.com/.json'
+>>> print firebase.firebaseURL('bony-badger.firebaseio.com/')
+https://bony-badger.firebaseio.com/.json
 ```
