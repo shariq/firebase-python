@@ -7,7 +7,6 @@ Requires `requests` and `sseclient`, which are on pip. If you don't know what th
 
 First create a Firebase here:
 https://www.firebase.com/signup/
-
 (warning: The free level of Firebase only allows up to 50 concurrent connections. Don't hit this limit!)
 
 
