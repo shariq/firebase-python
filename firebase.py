@@ -32,8 +32,11 @@ class ClosableSSEClient(SSEClient):
         # HACK: dig through the sseclient library to the requests library down to the underlying socket.
         # then close that to raise an exception to get out of streaming. I should probably file an issue w/ the
         # requests library to make this easier
-        self.resp.raw._fp.fp._sock.shutdown(socket.SHUT_RDWR)
-        self.resp.raw._fp.fp._sock.close()
+        try:
+            self.resp.raw._fp.fp._sock.shutdown(socket.SHUT_RDWR)
+            self.resp.raw._fp.fp._sock.close()
+        except AttributeError:
+            pass
 
 class RemoteThread(threading.Thread):
     def __init__(self, URL, function):
@@ -83,14 +86,19 @@ def put(URL, msg):
     if response.status_code != 200:
         raise Exception(response.text)
 
-def push(URL, msg):
-    to_post = json.dumps(msg)
-    response = requests.post(firebaseURL(URL), data = to_post)
-    if response.status_code != 200:
-        raise Exception(response.text)
-
 def patch(URL, msg):
     to_post = json.dumps(msg)
     response = requests.patch(firebaseURL(URL), data = to_post)
     if response.status_code != 200:
         raise Exception(response.text)
+
+
+'''
+Yuck, I don't want to write documentation for this :p
+def push(URL, msg):
+    to_post = json.dumps(msg)
+    response = requests.post(firebaseURL(URL), data = to_post)
+    if response.status_code != 200:
+        raise Exception(response.text)
+'''
+
