@@ -1,7 +1,7 @@
 #firebase-python
-######A nice (working!) Python Firebase integration for hackers
+######A nice, easy Python Firebase integration
 
-Quick and dirty, but not crappy. Supports streaming API but not authentication.
+Supports streaming API but not authentication.
 
 Requires `requests` and `sseclient`, which are on pip. If you don't know what that is, don't worry; just run `./setup.sh`.
 
