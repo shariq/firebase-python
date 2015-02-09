@@ -71,25 +71,18 @@ None
 >>> URL = 'clumsy-clementine'
 >>> S = firebase.subscriber(URL, pprint)  # pprint will be called on all Firebase updates
 >>> S.start()  # will get called with initial value of URL, which is empty
-{u'data': None, u'path': u'/'}
+(u'put', {u'data': None, u'path': u'/'})
 
 >>> firebase.put(URL, ';-)')  # will make S print something
-{u'data': u';-)', u'path': u'/'}
+(u'put', {u'data': u';-)', u'path': u'/'})
 
 >>> firebase.put(URL, {'status': 'mortified'})  # continuing from above
-{u'data': {u'status': u'mortified'}, u'path': u'/'}
->>> firebase.patch(URL, {'reason': 'blushing'})  # this one is scary
-{u'data': {u'reason': u'blushing'}, u'path': u'/'}
->>> print firebase.get(URL)  # notice the update only gave us the new k,v without telling us
-{u'status': u'mortified', u'reason': u'blushing'}
-
->>> firebase.put(URL, {'color': 'orange-red'})  # expect change from S
-{u'data': {u'color': u'orange-red'}, u'path': u'/'}
->>> print firebase.get(URL)  # put overwrites, but S doesn't tell us!
-{u'color': u'orange-red'}
+(u'put', {u'data': {u'status': u'mortified'}, u'path': u'/'})
+>>> firebase.patch(URL, {'reason': 'blushing'})  # same data, different method
+(u'patch', {u'data': {u'reason': u'blushing'}, u'path': u'/'})
 
 >>> firebase.put(URL + '/color', 'red')
-{u'data': u'red', u'path': u'/color'}
+(u'put', {u'data': u'red', u'path': u'/color'})
 
 >>> S.stop()
 ```
