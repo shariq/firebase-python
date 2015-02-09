@@ -1,3 +1,3 @@
-Maybe add a state variable to the subscriber which
-a developer can access so they don't need to keep
-track of state on their own
+Add a state variable to the subscriber which
+the developer can access so they don't need
+to track state on their own
