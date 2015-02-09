@@ -33,9 +33,10 @@ class ClosableSSEClient(SSEClient):
 
 class RemoteThread(threading.Thread):
 
-    def __init__(self, URL, function):
+    def __init__(self, parent, URL, function):
         self.function = function
         self.URL = URL
+        self.parent = parent
         super(RemoteThread, self).__init__()
 
     def run(self):
@@ -43,9 +44,10 @@ class RemoteThread(threading.Thread):
             self.sse = ClosableSSEClient(self.URL)
             for msg in self.sse:
                 msg_data = json.loads(msg.data)
-                msg_event = msg.event
                 if msg_data is None:    # keep-alives
                     continue
+                msg_event = msg.event
+                # TODO: update parent cache here
                 self.function((msg.event, msg_data))
         except socket.error:
             pass    # this can happen when we close the stream
@@ -85,7 +87,8 @@ def firebaseURL(URL):
 class subscriber:
 
     def __init__(self, URL, function):
-        self.remote_thread = RemoteThread(firebaseURL(URL), function)
+        self.cache = {}
+        self.remote_thread = RemoteThread(self, firebaseURL(URL), function)
 
     def start(self):
         self.remote_thread.start()
