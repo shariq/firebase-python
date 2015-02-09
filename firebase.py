@@ -43,9 +43,10 @@ class RemoteThread(threading.Thread):
             self.sse = ClosableSSEClient(self.URL)
             for msg in self.sse:
                 msg_data = json.loads(msg.data)
+                msg_event = msg.event
                 if msg_data is None:    # keep-alives
                     continue
-                self.function(msg_data)
+                self.function((msg.event, msg_data))
         except socket.error:
             pass    # this can happen when we close the stream
         except KeyboardInterrupt:
