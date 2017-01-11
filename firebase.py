@@ -125,6 +125,7 @@ def get(URL):
         raise FirebaseException(response.text)
     return json.loads(response.text)
 
+
 def push(URL, msg):
     to_post = json.dumps(msg)
     response = requests.post(firebaseURL(URL), data=to_post)
