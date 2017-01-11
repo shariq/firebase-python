@@ -12,9 +12,9 @@ https://www.firebase.com/signup/
 
 
 
-##get, put and push
+##get and put
 
-`get` gets the value of a Firebase at some URL, `put` writes or replaces data at the path defined by URL and `push` appends data to a list at the path defined by URL. A new ID is also generated every time you `push` to a Firebase URL.
+`get` gets the value of a Firebase at some URL, `put` writes or replaces data at a Firebase path.
 
 ```python
 >>> import firebase
@@ -36,15 +36,27 @@ tell me everything
 
 >>> print firebase.get(URL + '/color')
 red
+```
 
->>> #Whereas using put replaces existing data, push simply appends to a list
->>> firebase.push(URL+'/listexample',{'color':'red'})
->>> firebase.get(URL+'/listexample')
-{'u'-JyAXHX9ZNBh7tPPja4w':{'color':'red'}}
 
->>> firebase.push(URL+'/listexample',{'color':'green'})
->>> firebase.get(URL+'/listexample')
-{'u'-JyAXHX9ZNBh7tPPja4w':{'color':'red'},'-JyAXHX9ZNBh7tPPjasd':{'color':'green'}}
+
+##push
+
+`push` pushes data to a list on a Firebase path. This is the same as `patch`ing with an incrementing key, with Firebase taking care of concurrency issues.
+
+```
+>>> import firebase
+>>> URL = 'bickering-blancmanges'
+>>> print firebase.get(URL)
+None
+
+>>> firebase.push(URL, {'color': 'pink', 'jiggliness': 'high'})
+>>> firebase.get(URL)
+{'u'-JyAXHX9ZNBh7tPPja4w': {'color': 'pink', 'jiggliness': 'high'}}
+
+>>> firebase.push(URL, {'color': 'white', 'jiggliness': 'extreme'})
+>>> firebase.get(URL)
+{'u'-JyAXHX9ZNBh7tPPja4w': {'color': 'pink', 'jiggliness': 'high'}, '-JyAXHX9ZNBh7tPPjasd': {'color': 'white', 'jiggliness': 'extreme'}}
 ```
 
 
