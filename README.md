@@ -52,11 +52,16 @@ None
 
 >>> firebase.push(URL, {'color': 'pink', 'jiggliness': 'high'})
 >>> firebase.get(URL)
-{'u'-JyAXHX9ZNBh7tPPja4w': {'color': 'pink', 'jiggliness': 'high'}}
+{
+  u'-JyAXHX9ZNBh7tPPja4w': {u'color': u'pink', u'jiggliness': u'high'}
+}
 
 >>> firebase.push(URL, {'color': 'white', 'jiggliness': 'extreme'})
 >>> firebase.get(URL)
-{'u'-JyAXHX9ZNBh7tPPja4w': {'color': 'pink', 'jiggliness': 'high'}, '-JyAXHX9ZNBh7tPPjasd': {'color': 'white', 'jiggliness': 'extreme'}}
+{
+  u'-JyAXHX9ZNBh7tPPja4w': {u'color': u'pink', u'jiggliness': u'high'},
+  u'-JyAXHX9ZNBh7tPPjasd': {u'color': u'white', u'jiggliness': u'extreme'}
+}
 ```
 
 
