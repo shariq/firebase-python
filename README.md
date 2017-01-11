@@ -44,7 +44,7 @@ red
 
 `push` pushes data to a list on a Firebase path. This is the same as `patch`ing with an incrementing key, with Firebase taking care of concurrency issues.
 
-```
+```python
 >>> import firebase
 >>> URL = 'bickering-blancmanges'
 >>> print firebase.get(URL)
