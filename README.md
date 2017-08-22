@@ -1,7 +1,7 @@
-#firebase-python
+# firebase-python
 
 
-######A nice, easy Python Firebase integration
+###### A nice, easy Python Firebase integration
 
 
 Supports streaming data.
@@ -15,7 +15,7 @@ https://www.firebase.com/signup/
 
 
 
-##get and put
+## get and put
 
 `get` gets the value of a Firebase at some URL, `put` writes or replaces data at a Firebase path.
 
@@ -43,7 +43,7 @@ red
 
 
 
-##push
+## push
 
 `push` pushes data to a list on a Firebase path. This is the same as `patch`ing with an incrementing key, with Firebase taking care of concurrency issues.
 
@@ -69,7 +69,7 @@ None
 
 
 
-##patch
+## patch
 
 `patch` adds new key value pairs to an existing Firebase, without deleting the old key value pairs.
 
@@ -90,7 +90,7 @@ None
 
 
 
-##subscriber
+## subscriber
 
 `subscriber` takes a URL and callback function and calls the callback on every update of the Firebase at URL.
 
@@ -118,7 +118,7 @@ None
 
 
 
-##URLs
+## URLs
 All URLs are internally converted to the apparent Firebase URL. This is done by the `firebaseURL` method.
 
 ```python
