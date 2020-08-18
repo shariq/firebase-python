@@ -1,6 +1,10 @@
 # firebase-python
 
 
+This repo is now maintained by @lgozalvez
+
+
+
 ###### A nice, easy Python Firebase integration
 
 
